@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Deck.css';
 import Card from './Card.js';
 import axios from 'axios';
 const API_BASE_URL = "https://deckofcardsapi.com/api/deck";
@@ -13,7 +14,7 @@ class Deck extends Component {
         this.getCard = this.getCard.bind(this);
     }
 
-    //async temporarily pauses execution
+    // async temporarily pauses execution, this function gets a random deck
     async componentDidMount() {
         // .get gets a promise which returns a response object.
         // the response object contains info you can use to assign values.
@@ -54,8 +55,10 @@ class Deck extends Component {
         return (
             <div>
                 <h1>Card Dealer</h1>
-                {cards}
                 <button onClick={this.getCard}>Get Card</button>
+                <div className='Deck-cardarea'>
+                    {cards}
+                </div>
             </div>
         )
     }
